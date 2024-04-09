@@ -1,19 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [./host.nix ./locale.nix ./services.nix ./utils.nix];
-
-  options.appsmith.kernelPackages = lib.mkOption {
-    default = pkgs.linuxPackages;
-  };
 
   config = {
     boot = {
-      inherit (config.appsmith) kernelPackages;
-
       # Use systemd boot
       loader = {
         systemd-boot.enable = lib.mkDefault true;

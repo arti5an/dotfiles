@@ -30,6 +30,7 @@
     forAllSystems = fn: (nixpkgs.lib.genAttrs ["aarch64-linux" "x86_64-linux"] fn);
   in {
     nixosConfigurations = {
+      bifrost = nixosSystem "aarch64-linux" "bifrost";
       gamora = nixosSystem "x86_64-linux" "gamora";
     };
 

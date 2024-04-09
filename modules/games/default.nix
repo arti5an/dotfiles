@@ -8,7 +8,7 @@
     enable = lib.mkEnableOption "games";
 
     controllerModules = lib.mkOption {
-      default = with config.appsmith.kernelPackages; [xone xpadneo];
+      default = with config.boot.kernelPackages; [xone xpadneo];
       type = lib.types.listOf lib.types.package;
     };
 
