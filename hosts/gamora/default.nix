@@ -34,7 +34,7 @@
       enable = true;
       plasma6 = {
         enable = true;
-        defaultSessionX11 = true;
+        defaultSessionX11 = false;
       };
     };
 
