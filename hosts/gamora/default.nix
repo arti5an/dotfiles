@@ -1,11 +1,5 @@
-{inputs, ...}: {
-  imports = with inputs.nixos-hardware.nixosModules; [
-    # Official hardware specialisations
-    common-cpu-intel
-    common-gpu-nvidia
-    common-pc-laptop
-    common-pc-ssd
-
+{
+  imports = [
     # Nix configuration common to all hosts
     ../common.nix
 

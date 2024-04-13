@@ -1,14 +1,24 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
-  imports = [
+  imports = with inputs.nixos-hardware.nixosModules; [
+    # Official hardware specialisations
+    common-cpu-intel
+    common-gpu-nvidia
+    common-pc-laptop
+    common-pc-ssd
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot = {
+    binfmt.emulatedSystems = ["aarch64-linux"];
+    kernelParams = ["acpi_osi=\"!\"" "acpi_osi=\"Windows 2015\""];
+  };
 
   environment = {
     systemPackages = with pkgs; [
