@@ -10,10 +10,12 @@
     environment = {
       sessionVariables = {
         EDITOR = lib.mkDefault "hx";
+        VISUAL = lib.mkOverride 990 "zed";
       };
 
       systemPackages = with pkgs; [
         helix
+        zed-editor
       ];
     };
   };
