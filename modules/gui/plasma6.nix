@@ -23,7 +23,9 @@
     };
 
     services = {
-      xserver.displayManager = {
+      desktopManager.plasma6.enable = true;
+
+      displayManager = {
         defaultSession = let
           session =
             if config.appsmith.gui.plasma6.defaultSessionX11
@@ -33,7 +35,6 @@
           lib.mkOverride 990 session;
         sddm.enable = lib.mkDefault true;
       };
-      desktopManager.plasma6.enable = true;
     };
 
     # make plasma usable when testing in a vm
