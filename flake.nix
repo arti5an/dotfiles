@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +36,7 @@
     nixosConfigurations = {
       bifrost = nixosSystem "aarch64-linux" "bifrost";
       gamora = nixosSystem "x86_64-linux" "gamora";
+      wsl = nixosSystem "x86_64-linux" "wsl";
     };
 
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
