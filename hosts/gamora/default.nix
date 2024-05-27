@@ -19,7 +19,10 @@
       adb = true;
     };
 
-    experiments.enable = true;
+    experiments = {
+      enable = true;
+      calibre-web.enable = false;
+    };
 
     host = {
       name = "gamora";

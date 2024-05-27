@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  imports = [./calibre-web.nix];
+
   options.appsmith.experiments.enable = lib.mkEnableOption "experimental stuff";
 
   config = lib.mkIf config.appsmith.experiments.enable {
