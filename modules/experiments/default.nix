@@ -20,5 +20,7 @@
         zed-editor
       ];
     };
+
+    security.pam.enableFscrypt = true;
   };
 }

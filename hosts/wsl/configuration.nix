@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     # Nix community WSL module
     inputs.nixos-wsl.nixosModules.wsl
