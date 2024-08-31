@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   imports = [./android.nix];
@@ -11,9 +12,9 @@
   config = lib.mkIf config.appsmith.dev.enable {
     documentation.dev.enable = lib.mkDefault true;
 
-    environment.systemPackages = with pkgs; [
-      devbox
-      git
+    environment.systemPackages = [
+      pkgs.git
+      pkgs-unstable.devbox
     ];
   };
 }

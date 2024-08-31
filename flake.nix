@@ -33,6 +33,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -42,10 +43,11 @@
     ];
     nixosSystem = system: name: let
       inherit (import nixpkgs {inherit system;}) lib;
+      pkgs-unstable = import nixpkgs-unstable {inherit system;};
     in
       nixpkgs.lib.nixosSystem {
         inherit lib system;
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgs-unstable;};
         modules = commonModules ++ [./hosts/${name}];
       };
     forAllSystems = fn: (nixpkgs.lib.genAttrs ["aarch64-linux" "x86_64-linux"] fn);
