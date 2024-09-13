@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./gnome.nix ./plasma6.nix];
+  imports = [./gnome.nix ./plasma6.nix ./sway.nix];
 
   options.appsmith.gui.enable = lib.mkEnableOption "graphical user interface";
 

@@ -38,7 +38,7 @@
 
     gui = {
       enable = true;
-      gnome.enable = true;
+      sway.enable = true;
     };
 
     sound.enable = true;
