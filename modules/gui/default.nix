@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./plasma6.nix];
+  imports = [./gnome.nix ./plasma6.nix];
 
   options.appsmith.gui.enable = lib.mkEnableOption "graphical user interface";
 
@@ -23,11 +23,11 @@
 
     fonts.enableDefaultPackages = lib.mkDefault true;
 
-    hardware.opengl = {
-      enable = lib.mkDefault true;
-      driSupport = lib.mkDefault true;
-      driSupport32Bit = lib.mkDefault true;
-    };
+    #hardware.opengl = {
+    #  enable = lib.mkDefault true;
+    #  driSupport = lib.mkDefault true;
+    #  driSupport32Bit = lib.mkDefault true;
+    #};
 
     # Fix GTK themes in Wayland applications
     programs.dconf.enable = lib.mkDefault true;

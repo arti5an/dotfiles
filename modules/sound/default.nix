@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.appsmith.sound.enable {
     sound.enable = lib.mkDefault true;
-    hardware.pulseaudio.enable = lib.mkDefault false;
+    hardware.pulseaudio.enable = lib.mkOverride 990 false;
     security.rtkit.enable = lib.mkDefault true;
     services.pipewire = {
       enable = lib.mkDefault true;
