@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  pkgs-unstable,
   ...
 }: {
   imports = [./calibre-web.nix];
@@ -15,7 +15,7 @@
         VISUAL = lib.mkOverride 990 "zed";
       };
 
-      systemPackages = with pkgs; [
+      systemPackages = with pkgs-unstable; [
         helix
         zed-editor
       ];
