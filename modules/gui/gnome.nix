@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.appsmith.gui.gnome.enable = lib.mkEnableOption "Gnome";

@@ -12,7 +12,7 @@
   config = lib.mkIf (config.appsmith.gui.enable && config.appsmith.gui.plasma6.enable) {
     environment = {
       sessionVariables = {
-        # NIXOS_OZONE_WL = "1";
+        NIXOS_OZONE_WL = "1";
         SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer"; # Use KDEWallet even in a terminal
         VISUAL = lib.mkDefault "kate";
       };
