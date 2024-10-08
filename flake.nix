@@ -40,6 +40,7 @@
     nixosConfigurations = {
       bifrost = nixosSystem "aarch64-linux" "bifrost";
       gamora = nixosSystem "x86_64-linux" "gamora";
+      rogue = nixosSystem "x86_64-linux" "rogue";
       wsl = nixosSystem "x86_64-linux" "wsl";
     };
 
