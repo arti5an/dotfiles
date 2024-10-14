@@ -38,7 +38,7 @@
 
     gui = {
       enable = true;
-      plasma6.enable = true;
+      sway.enable = true;
     };
 
     sound.enable = true;

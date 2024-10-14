@@ -15,6 +15,7 @@
         VISUAL = lib.mkDefault "kate";
       };
       systemPackages = with pkgs; [
+        greetd.tuigreet
         grim
         mako
         slurp
@@ -32,20 +33,12 @@
     };
 
     services = {
-      displayManager = {
-        defaultSession = lib.mkOverride 990 "sway";
-        sddm.enable = lib.mkDefault true;
+      greetd = {
+        enable = true;
+        settings.default_session.command = "tuigreet --cmd sway --issue --time --remember --asterisks";
       };
 
       gnome.gnome-keyring.enable = true;
-    };
-
-    systemd.user.services.kanshi = {
-      description = "kanshi daemon";
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
-      };
     };
   };
 }
